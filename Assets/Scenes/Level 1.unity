@@ -134,6 +134,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 344162139763517740, guid: cd4425635e18e0d4fafe72923a3d85a7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 344162140762997357, guid: cd4425635e18e0d4fafe72923a3d85a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -142,7 +147,7 @@ PrefabInstance:
     - target: {fileID: 344162140762997357, guid: cd4425635e18e0d4fafe72923a3d85a7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4
+      value: 4.51
       objectReference: {fileID: 0}
     - target: {fileID: 344162140762997357, guid: cd4425635e18e0d4fafe72923a3d85a7,
         type: 3}
@@ -193,6 +198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocketship Compound
+      objectReference: {fileID: 0}
+    - target: {fileID: 8621024973248436978, guid: cd4425635e18e0d4fafe72923a3d85a7,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.07
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd4425635e18e0d4fafe72923a3d85a7, type: 3}
@@ -331,6 +341,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Launch Pad
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396234945712704992, guid: 05a3fa84aac25e24e92f2cda05cfb94a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05a3fa84aac25e24e92f2cda05cfb94a, type: 3}
