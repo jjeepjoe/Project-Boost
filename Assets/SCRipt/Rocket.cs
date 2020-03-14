@@ -6,13 +6,16 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     //CONFIG PARAMS
-
-    //CACHE/ HANDLEs
+    
+    //CACHE/ HANDLES
     Rigidbody myRB;
-
+    AudioSource myAudioSource;
+    
+    //connect to the components
     private void Start()
     {
         myRB = GetComponent<Rigidbody>();
+        myAudioSource = GetComponent<AudioSource>();
     }
     //keep it clean
     private void Update()
@@ -24,17 +27,27 @@ public class Rocket : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            print("Thrusting pressed");
+            if (!myAudioSource.isPlaying)
+            {
+                myAudioSource.Play(0);
+            }
             myRB.AddRelativeForce(Vector3.up);
+        }
+        else
+        {
+            myAudioSource.Stop();
         }
         //This will only allow a single press to be processed. The top is the boss if both pressed.
         if (Input.GetKey(KeyCode.A))
         {
-            print("rotate left");
+            //we are moving about the Z axis
+            transform.Rotate(Vector3.forward);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            print("rotate right");
+            //we are moving about the Z axis
+            transform.Rotate(-Vector3.forward);
         }
+
     }
 }

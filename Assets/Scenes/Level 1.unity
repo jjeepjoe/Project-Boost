@@ -121,24 +121,13 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!108 &705507994 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 5754052169026043613, guid: 34dc3e0200feb1b4ea1260c663fd8fb8,
-    type: 3}
-  m_PrefabInstance: {fileID: 5754052168656211015}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1400229183
+--- !u!1001 &283632554
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 344162139763517740, guid: cd4425635e18e0d4fafe72923a3d85a7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 344162140762997357, guid: cd4425635e18e0d4fafe72923a3d85a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -147,7 +136,7 @@ PrefabInstance:
     - target: {fileID: 344162140762997357, guid: cd4425635e18e0d4fafe72923a3d85a7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.51
+      value: 5.39
       objectReference: {fileID: 0}
     - target: {fileID: 344162140762997357, guid: cd4425635e18e0d4fafe72923a3d85a7,
         type: 3}
@@ -199,13 +188,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocketship Compound
       objectReference: {fileID: 0}
+    - target: {fileID: 1222295459288911892, guid: cd4425635e18e0d4fafe72923a3d85a7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8621024973248436978, guid: cd4425635e18e0d4fafe72923a3d85a7,
         type: 3}
       propertyPath: m_Mass
-      value: 0.07
+      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd4425635e18e0d4fafe72923a3d85a7, type: 3}
+--- !u!108 &705507994 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 5754052169026043613, guid: 34dc3e0200feb1b4ea1260c663fd8fb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 5754052168656211015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &89546581388746669
 PrefabInstance:
   m_ObjectHideFlags: 0
