@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour
 {
     //CONFIG PARAMS
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 40f;
+    int currentScene;
     //CACHE/ HANDLES
     Rigidbody myRB;
     AudioSource myAudioSource;
+    enum State {  Alive, Dying, Transcending }
+    State myState = State.Alive;
     
     //connect to the components
     private void Start()
@@ -21,25 +22,48 @@ public class Rocket : MonoBehaviour
     //keep CODE clean.
     private void Update()
     {
-        Thrust();
-        Rotate();
+        if(myState != State.Dying)
+        {
+            Thrust();
+            Rotate();
+        }
     }
     //
     private void OnCollisionEnter(Collision otherCollider)
     {
+        if(myState != State.Alive) { return; } //ignore collision while dead.
+        //
+        currentScene = SceneManager.GetActiveScene().buildIndex;
         switch (otherCollider.gameObject.tag)
         {
             case "Friendly":
-                print("nice guy");
                 break;
-            case "Fuel":
-                print("gas baby");
+            case "Finish":
+                //Landing Pad
+                myState = State.Transcending;
+                Invoke("LoadNextScene", 1f); //parameterise time
                 break;
             default:
                 //player death
-                print("last resort");
+                myState = State.Dying;
+                Invoke("LoadCurrentScene", 1f); //parameterise time
                 break;
         }
+    }
+    //If Dead restart the same level.
+    private void LoadCurrentScene()
+    {
+        SceneManager.LoadScene(currentScene);
+    }
+    //TODO: work for more levels
+    private void LoadNextScene()
+    {
+        currentScene += 1;
+        if (currentScene > 1)
+        {
+            currentScene = 0;
+        }
+        SceneManager.LoadScene(currentScene);
     }
     //refactored our the parts.
     private void Rotate()
