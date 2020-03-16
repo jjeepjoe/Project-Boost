@@ -9,6 +9,9 @@ public class Rocket : MonoBehaviour
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip crashDeath;
     [SerializeField] AudioClip landingWin;
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem crashDeathParticles;
+    [SerializeField] ParticleSystem landingWinParticles;
     [SerializeField] float sceneDelay = 3f;
     int currentScene;
     //CACHE/ HANDLES
@@ -43,7 +46,7 @@ public class Rocket : MonoBehaviour
         {
             case "Friendly":
                 break;
-            case "Finish":
+            case "Tag":
                 StartSuccessSequence();
                 break;
             default:
@@ -54,10 +57,11 @@ public class Rocket : MonoBehaviour
     //
     private void StartSuccessSequence()
     {
-        //Landing Pad
-        //myAudioSource.Stop();
-        myAudioSource.PlayOneShot(landingWin);
+        //player win
         myState = State.Transcending;
+        myAudioSource.Stop();
+        myAudioSource.PlayOneShot(landingWin);
+        landingWinParticles.Play();
         Invoke("LoadNextScene", sceneDelay);
     }
     //
@@ -67,11 +71,9 @@ public class Rocket : MonoBehaviour
         myState = State.Dying;
         myAudioSource.Stop();
         myAudioSource.PlayOneShot(crashDeath);
+        crashDeathParticles.Play();
         Invoke("LoadCurrentScene", sceneDelay);
     }
-
-    
-
     //If Dead restart the same level.
     private void LoadCurrentScene()
     {
@@ -80,6 +82,7 @@ public class Rocket : MonoBehaviour
     //TODO: work for more levels
     private void LoadNextScene()
     {
+        
         currentScene += 1;
         if (currentScene > 1)
         {
@@ -116,16 +119,18 @@ public class Rocket : MonoBehaviour
         }
         else
         {
-            myAudioSource.Stop();
+            //myAudioSource.Stop(); //THIS IS KEEPING MY OTHER AUDIO FROM PLAYING.
+            mainEngineParticles.Stop();
         }
     }
     //
     private void ApplyThrust()
     {
+        myRB.AddRelativeForce(Vector3.up * mainThrust);
         if (!myAudioSource.isPlaying)
         {
             myAudioSource.PlayOneShot(mainEngine);
         }
-        myRB.AddRelativeForce(Vector3.up * mainThrust);
+        mainEngineParticles.Play();
     }
 }

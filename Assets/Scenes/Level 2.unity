@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obsticle RH (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2645386994111417721, guid: 89d01f2614bdd6448a72218625ace291,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7444070709989662222, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -222,6 +227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645386994111417721, guid: 89d01f2614bdd6448a72218625ace291,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3186468784290759047, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
@@ -322,6 +332,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645386994111417721, guid: 89d01f2614bdd6448a72218625ace291,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3186468784290759047, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
@@ -557,6 +572,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8144948884742333343, guid: 02a851c7f1805774cb0f902151d87cc5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8756821584308694881, guid: 02a851c7f1805774cb0f902151d87cc5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -652,6 +672,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obsticle LH (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8144948884742333343, guid: 02a851c7f1805774cb0f902151d87cc5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02a851c7f1805774cb0f902151d87cc5, type: 3}
 --- !u!4 &635760240 stripped
@@ -677,6 +702,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obsticle RH (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645386994111417721, guid: 89d01f2614bdd6448a72218625ace291,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7444070709989662222, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
@@ -762,6 +792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obsticle RH (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645386994111417721, guid: 89d01f2614bdd6448a72218625ace291,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7444070709989662222, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
@@ -913,6 +948,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obsticle LH (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8144948884742333343, guid: 02a851c7f1805774cb0f902151d87cc5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02a851c7f1805774cb0f902151d87cc5, type: 3}
 --- !u!4 &1044608041 stripped
@@ -937,6 +977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645386994111417721, guid: 89d01f2614bdd6448a72218625ace291,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3186468784290759047, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
@@ -1088,6 +1133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landing Pad
       objectReference: {fileID: 0}
+    - target: {fileID: 6937048876876603364, guid: d25a93199aba2714bba602f7547cbbb9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tag
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d25a93199aba2714bba602f7547cbbb9, type: 3}
 --- !u!4 &1389242440 stripped
@@ -1112,6 +1162,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645386994111417721, guid: 89d01f2614bdd6448a72218625ace291,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3186468784290759047, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
@@ -1257,6 +1312,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645386994111417721, guid: 89d01f2614bdd6448a72218625ace291,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3186468784290759047, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
@@ -1478,31 +1538,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1420260539601392233, guid: 05a3fa84aac25e24e92f2cda05cfb94a,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1420260539601392233, guid: 05a3fa84aac25e24e92f2cda05cfb94a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1420260539601392233, guid: 05a3fa84aac25e24e92f2cda05cfb94a,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5786330324448559390, guid: 05a3fa84aac25e24e92f2cda05cfb94a,
         type: 3}
       propertyPath: m_Name
       value: Launch Pad
       objectReference: {fileID: 0}
-    - target: {fileID: 6396234945712704992, guid: 05a3fa84aac25e24e92f2cda05cfb94a,
+    - target: {fileID: 5786330324448559390, guid: 05a3fa84aac25e24e92f2cda05cfb94a,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: af0b287530297d440ac08b518c26a282, type: 2}
+      propertyPath: m_TagString
+      value: Friendly
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05a3fa84aac25e24e92f2cda05cfb94a, type: 3}
 --- !u!1001 &2025040382978482183
@@ -1586,6 +1631,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obsticle LH
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144948884742333343, guid: 02a851c7f1805774cb0f902151d87cc5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02a851c7f1805774cb0f902151d87cc5, type: 3}
@@ -1681,6 +1731,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144948884742333343, guid: 02a851c7f1805774cb0f902151d87cc5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8756821584308694881, guid: 02a851c7f1805774cb0f902151d87cc5,
         type: 3}
@@ -1823,17 +1878,17 @@ PrefabInstance:
     - target: {fileID: 5754052169026043613, guid: 34dc3e0200feb1b4ea1260c663fd8fb8,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 0
+      value: -2.3404263e-24
       objectReference: {fileID: 0}
     - target: {fileID: 5754052169026043613, guid: 34dc3e0200feb1b4ea1260c663fd8fb8,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 0
+      value: 2.3937171e-21
       objectReference: {fileID: 0}
     - target: {fileID: 5754052169026043613, guid: 34dc3e0200feb1b4ea1260c663fd8fb8,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: -3.0590932e+31
       objectReference: {fileID: 0}
     - target: {fileID: 5754052169026043613, guid: 34dc3e0200feb1b4ea1260c663fd8fb8,
         type: 3}
@@ -1948,6 +2003,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2645386994111417721, guid: 89d01f2614bdd6448a72218625ace291,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3186468784290759047, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2036,6 +2096,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obsticle RH (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645386994111417721, guid: 89d01f2614bdd6448a72218625ace291,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7444070709989662222, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
