@@ -6,10 +6,15 @@ public class Rocket : MonoBehaviour
     //CONFIG PARAMS
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 40f;
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip crashDeath;
+    [SerializeField] AudioClip landingWin;
+    [SerializeField] float sceneDelay = 3f;
     int currentScene;
     //CACHE/ HANDLES
     Rigidbody myRB;
     AudioSource myAudioSource;
+    //
     enum State {  Alive, Dying, Transcending }
     State myState = State.Alive;
     
@@ -20,12 +25,12 @@ public class Rocket : MonoBehaviour
         myAudioSource = GetComponent<AudioSource>();
     }
     //keep CODE clean.
-    private void Update()
+    private void FixedUpdate()
     {
         if(myState != State.Dying)
         {
-            Thrust();
-            Rotate();
+            RespondToThrustInput();
+            RepondToRotateInput();
         }
     }
     //
@@ -39,17 +44,34 @@ public class Rocket : MonoBehaviour
             case "Friendly":
                 break;
             case "Finish":
-                //Landing Pad
-                myState = State.Transcending;
-                Invoke("LoadNextScene", 1f); //parameterise time
+                StartSuccessSequence();
                 break;
             default:
-                //player death
-                myState = State.Dying;
-                Invoke("LoadCurrentScene", 1f); //parameterise time
+                StartDeathSequence();
                 break;
         }
     }
+    //
+    private void StartSuccessSequence()
+    {
+        //Landing Pad
+        //myAudioSource.Stop();
+        myAudioSource.PlayOneShot(landingWin);
+        myState = State.Transcending;
+        Invoke("LoadNextScene", sceneDelay);
+    }
+    //
+    private void StartDeathSequence()
+    {
+        //player death
+        myState = State.Dying;
+        myAudioSource.Stop();
+        myAudioSource.PlayOneShot(crashDeath);
+        Invoke("LoadCurrentScene", sceneDelay);
+    }
+
+    
+
     //If Dead restart the same level.
     private void LoadCurrentScene()
     {
@@ -66,7 +88,7 @@ public class Rocket : MonoBehaviour
         SceneManager.LoadScene(currentScene);
     }
     //refactored our the parts.
-    private void Rotate()
+    private void RepondToRotateInput()
     {
         float rotationThisFrame = rcsThrust * Time.deltaTime;
         //Locks from the rotation in Unity
@@ -86,19 +108,24 @@ public class Rocket : MonoBehaviour
         myRB.freezeRotation = false;
     }
     //Vertical movement, and Audio handling.
-    private void Thrust()
+    private void RespondToThrustInput()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            if (!myAudioSource.isPlaying)
-            {
-                myAudioSource.Play(0);
-            }
-            myRB.AddRelativeForce(Vector3.up * mainThrust);
+            ApplyThrust();
         }
         else
         {
             myAudioSource.Stop();
         }
+    }
+    //
+    private void ApplyThrust()
+    {
+        if (!myAudioSource.isPlaying)
+        {
+            myAudioSource.PlayOneShot(mainEngine);
+        }
+        myRB.AddRelativeForce(Vector3.up * mainThrust);
     }
 }

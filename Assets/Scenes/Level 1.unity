@@ -987,7 +987,7 @@ PrefabInstance:
     - target: {fileID: 7444070709989662222, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 37.2
+      value: 38.5
       objectReference: {fileID: 0}
     - target: {fileID: 7444070709989662222, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
@@ -1017,7 +1017,7 @@ PrefabInstance:
     - target: {fileID: 7444070709989662222, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7444070709989662222, guid: 89d01f2614bdd6448a72218625ace291,
         type: 3}
@@ -1352,6 +1352,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Launch Pad
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786330324448559390, guid: 05a3fa84aac25e24e92f2cda05cfb94a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Finish
       objectReference: {fileID: 0}
     - target: {fileID: 6396234945712704992, guid: 05a3fa84aac25e24e92f2cda05cfb94a,
         type: 3}
