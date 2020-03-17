@@ -13,6 +13,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] ParticleSystem crashDeathParticles;
     [SerializeField] ParticleSystem landingWinParticles;
     [SerializeField] float sceneDelay = 3f;
+    bool areCollisionsDISABLED = false;
     int currentScene;
     //CACHE/ HANDLES
     Rigidbody myRB;
@@ -28,18 +29,37 @@ public class Rocket : MonoBehaviour
         myAudioSource = GetComponent<AudioSource>();
     }
     //keep CODE clean.
-    private void FixedUpdate()
+    private void Update()
     {
-        if(myState != State.Dying)
+        if (myState != State.Dying)
         {
             RespondToThrustInput();
             RepondToRotateInput();
+        }
+        //todo: only if debug on
+        if (Debug.isDebugBuild)
+        {
+            RespondToDebugKey();
+        }
+    }
+    //
+    private void RespondToDebugKey()
+    {
+        if (Input.GetKey(KeyCode.L))
+        {
+            LoadNextScene();
+        }
+        //toggle collisions
+        if (Input.GetKeyDown(KeyCode.C))
+        {            
+            areCollisionsDISABLED = !areCollisionsDISABLED;
+            Debug.LogFormat("PRESS C {0}", areCollisionsDISABLED);
         }
     }
     //
     private void OnCollisionEnter(Collision otherCollider)
     {
-        if(myState != State.Alive) { return; } //ignore collision while dead.
+        if(myState != State.Alive || areCollisionsDISABLED) { return; } //ignore collision while dead or transending.
         //
         currentScene = SceneManager.GetActiveScene().buildIndex;
         switch (otherCollider.gameObject.tag)
@@ -84,7 +104,7 @@ public class Rocket : MonoBehaviour
     {
         
         currentScene += 1;
-        if (currentScene > 1)
+        if (currentScene >= 6)
         {
             currentScene = 0;
         }
