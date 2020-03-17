@@ -14,13 +14,11 @@ public class Rocket : MonoBehaviour
     [SerializeField] ParticleSystem landingWinParticles;
     [SerializeField] float sceneDelay = 3f;
     bool areCollisionsDISABLED = false;
+    bool areWeTransitioning = false;
     int currentScene;
     //CACHE/ HANDLES
     Rigidbody myRB;
     AudioSource myAudioSource;
-    //
-    enum State {  Alive, Dying, Transcending }
-    State myState = State.Alive;
     
     //connect to the components
     private void Start()
@@ -31,7 +29,7 @@ public class Rocket : MonoBehaviour
     //keep CODE clean.
     private void Update()
     {
-        if (myState != State.Dying)
+        if (!areWeTransitioning)
         {
             RespondToThrustInput();
             RepondToRotateInput();
@@ -59,8 +57,8 @@ public class Rocket : MonoBehaviour
     //
     private void OnCollisionEnter(Collision otherCollider)
     {
-        if(myState != State.Alive || areCollisionsDISABLED) { return; } //ignore collision while dead or transending.
-        //
+        if(areWeTransitioning || areCollisionsDISABLED) { return; } //ignore collision while dead or transending.
+        //SCENE CONTROL
         currentScene = SceneManager.GetActiveScene().buildIndex;
         switch (otherCollider.gameObject.tag)
         {
@@ -78,7 +76,7 @@ public class Rocket : MonoBehaviour
     private void StartSuccessSequence()
     {
         //player win
-        myState = State.Transcending;
+        areWeTransitioning = true;
         myAudioSource.Stop();
         myAudioSource.PlayOneShot(landingWin);
         landingWinParticles.Play();
@@ -88,7 +86,7 @@ public class Rocket : MonoBehaviour
     private void StartDeathSequence()
     {
         //player death
-        myState = State.Dying;
+        areWeTransitioning = true;
         myAudioSource.Stop();
         myAudioSource.PlayOneShot(crashDeath);
         crashDeathParticles.Play();
@@ -102,9 +100,10 @@ public class Rocket : MonoBehaviour
     //TODO: work for more levels
     private void LoadNextScene()
     {
-        
         currentScene += 1;
-        if (currentScene >= 6)
+        int totalScenes = SceneManager.sceneCountInBuildSettings;
+        //SCENE LOOPING.
+        if (currentScene >= totalScenes)
         {
             currentScene = 0;
         }
@@ -113,9 +112,9 @@ public class Rocket : MonoBehaviour
     //refactored our the parts.
     private void RepondToRotateInput()
     {
-        float rotationThisFrame = rcsThrust * Time.deltaTime;
         //Locks from the rotation in Unity
-        myRB.freezeRotation = true;
+        myRB.angularVelocity = Vector3.zero;
+        float rotationThisFrame = rcsThrust * Time.deltaTime;
         //This will only allow a single press to be processed. The top is the boss if both pressed.
         if (Input.GetKey(KeyCode.A))
         {
@@ -127,8 +126,6 @@ public class Rocket : MonoBehaviour
             //we are moving about the Z axis
             transform.Rotate(-Vector3.forward * rotationThisFrame);
         }
-        //un-Locks from the rotation in Unity
-        myRB.freezeRotation = false;
     }
     //Vertical movement, and Audio handling.
     private void RespondToThrustInput()
@@ -139,9 +136,14 @@ public class Rocket : MonoBehaviour
         }
         else
         {
-            //myAudioSource.Stop(); //THIS IS KEEPING MY OTHER AUDIO FROM PLAYING.
-            mainEngineParticles.Stop();
+            StopApplyingThrust();
         }
+    }
+    //
+    private void StopApplyingThrust()
+    {
+        myAudioSource.Stop(); //THIS IS KEEPING MY OTHER AUDIO FROM PLAYING.
+        mainEngineParticles.Stop();
     }
     //
     private void ApplyThrust()
